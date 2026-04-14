@@ -2,6 +2,7 @@ import Link from "next/link";
 import { prisma } from "@/lib/db";
 import { notFound } from "next/navigation";
 import DeletePlantButton from "./DeletePlantButton";
+import AISection from "./AISection";
 
 export default async function PlantPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -62,6 +63,8 @@ export default async function PlantPage({ params }: { params: Promise<{ id: stri
         </Link>
         <DeletePlantButton id={plant.id} />
       </div>
+
+      <AISection plant={plant} />
     </div>
   );
 }
